@@ -1,0 +1,21 @@
+[{
+    "firstName": "Mickey",
+    "lastName": "Mouse",
+    "emailId": "mickey@gmail.com",
+    "dob": {
+        "day": 10,
+        "month": 9,
+        "year": 2000
+    },
+    "appointment": {
+        "day": 10,
+        "month": 9,
+        "year": 2020
+    },
+    "time": {
+        "hour": 13,
+        "minute": 15
+    },
+    "confirmationCode": "hasdhsuhdwn182137162783y87"
+
+}]

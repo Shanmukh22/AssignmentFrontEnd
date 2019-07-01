@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Appointment Details</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+
+
+    <form>
+        <div class="row">
+
+            <div class="col-12">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter Confirmation Code" name="confirmationCode" class="form-control" [(ngModel)]="confirmationCode">
+                    </div>
+                    <button type="submit" class="btn btn-info ml-5" (click)="getUserAppointment()">Submit</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div *ngIf="isUserFetched">
+            <div class="form-group">
+                <label for="FirstName">First Name </label>
+                <input type="text" placeholder="First Name" [disabled]="true" name="firstName" class="form-control" [(ngModel)]="appoitmentModal.firstName">
+            </div>
+            <div class="form-group">
+                <label for="LastName">Last Name</label>
+                <input type="text" placeholder="Last Name" [disabled]="true" name="lastName" class="form-control" [(ngModel)]="appoitmentModal.lastName">
+            </div>
+            <div class="form-group">
+                <label for="emailId">Last Name</label>
+                <input type="text" placeholder="Email" [disabled]="true" name="emailId" class="form-control" [(ngModel)]="appoitmentModal.emailId">
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of birth</label>
+                <div class="input-group">
+                    <input id="dob" class="form-control" [disabled]="true" [(ngModel)]="appoitmentModal.dob" placeholder="yyyy-mm-dd" name="dob" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="appointment">Date of Apponitment</label>
+                <div class="input-group">
+                    <input id="appointment" class="form-control" [disabled]="true" [(ngModel)]="appoitmentModal.appointment" placeholder="yyyy-mm-dd" name="appointment" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="time">Time of Apponitment</label>
+                <div class="input-group">
+                    <ngb-timepicker [(ngModel)]="appoitmentModal.time" [disabled]="true" name="time" [meridian]="meridian"></ngb-timepicker>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

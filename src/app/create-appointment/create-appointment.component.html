@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Create Apponitment</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="appointmentForm">
+        <div class="form-group">
+            <label for="FirstName">First Name </label>
+            <input type="text" placeholder="First Name" name="firstName" formControlName="firstName" class="form-control" required >
+            <div class="error" *ngIf="appointmentForm.controls['firstName'].hasError('required') && appointmentForm.controls['firstName'].touched">Required Field</div>
+        </div>
+        <div class="form-group">
+            <label for="LastName">Last Name</label>
+            <input type="text" placeholder="Last Name" name="lastName" formControlName="lastName" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="emailId">Email Id</label>
+            <input type="text" placeholder="Email" name="emailId" formControlName="emailId" class="form-control" required>
+            <div class="error" *ngIf="appointmentForm.controls['emailId'].hasError('required') && appointmentForm.controls['emailId'].touched">Required Field</div>       
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Date of birth</label>
+            <div class="input-group">
+                <input id="dob" class="form-control" formControlName="dob" placeholder="yyyy-mm-dd" name="dob" ngbDatepicker #dob="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="dob.toggle()" type="button"><i class="far fa-calendar-alt"></i></button>
+                </div>
+                <div class="error" *ngIf="appointmentForm.controls['dob'].hasError('required') && appointmentForm.controls['dob'].touched">Required Field</div> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="appointment">Date of Apponitment</label>
+            <div class="input-group">
+                <input id="appointment" class="form-control"  formControlName="appointment"placeholder="yyyy-mm-dd" name="appointment" ngbDatepicker #appointment="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar " (click)="appointment.toggle()" type="button" ><i class="far fa-calendar-alt"></i></button>
+                </div>
+                <div class="error" *ngIf="appointmentForm.controls['appointment'].hasError('required') && appointmentForm.controls['appointment'].touched">Required Field</div> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="time">Time of Apponitment</label>
+            <div class="input-group">
+                <ngb-timepicker name="time" formControlName="time" [meridian]="meridian"></ngb-timepicker>
+            </div>
+            <div class="error" *ngIf="appointmentForm.controls['time'].hasError('required') && appointmentForm.controls['time'].touched">Required Field</div> 
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" [disabled]="!appointmentForm.valid" (click)="createAppointment()">Save</button>
+</div>
